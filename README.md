@@ -1,108 +1,63 @@
-*WORK IN PROGRESS*
-
 *Please be aware that this library / application / sample is provided as a community project without any guarantee of support*
 =========================================================
 
-[![](https://jitpack.io/v/ltrudu/DeviceIdentifiersWrapper.svg)](https://jitpack.io/#ltrudu/DeviceIdentifiersWrapper)
-[![](https://jitpack.io/v/ltrudu/DeviceIdentifiersWrapper/month.svg)](https://jitpack.io/#ltrudu/DeviceIdentifiersWrapper)
+[![](https://jitpack.io/v/ltrudu/ZebraOEMInfoWrapper.svg)](https://jitpack.io/#ltrudu/ZebraOEMInfoWrapper)
+[![](https://jitpack.io/v/ltrudu/ZebraOEMInfoWrapper/month.svg)](https://jitpack.io/#ltrudu/ZebraOEMInfoWrapper)
 
 
-# DeviceIdentifiersWrapper
+# ZebraOEMInfoWrapper
 
-## Easy access to Serial Number, IMEI and Bluetooth Mac Address and more !!!
+## Easy access to Zebra's devices OEM information !!!
 
 Forget about StageNow, EMDK, certificates, application signature... complexity....
 
-Just get the Serial Number, the IMEI number, the Bluetooth Mac Address (and more, see below) of your Zebra device in one method call (see at the end of this document).
+Just get the OEM Infos of your Zebra device in one method call (see at the end of this document).
 
 Have fun with Zebra's devices :)
 
+## Before implementing the API
 
+Please, take the time to read the OEM Info documentation to see what information you can get.
 
-
+https://techdocs.zebra.com/oeminfo/consume/
 
 ## Change Log !!! 
 
-## 0.12.0 : Added new methods:
+## 1.1 : getURIValue Error Fix
+Changed method getURIValue from RetrieveOEMInfoTask to be compliant with Zebra's documentation
 
-DIHelper.getProductModel to retrieve the product model.
+## 1.0 : First release
 
-DIHelper.getIdentityDeviceID to retrieve the identity device ID.
-
-DIHelper.getWifiMacAddress to retrieve the Wifi Mac Address.
-
-DIHelper.getWifiAPMacAddress to retrieve the Wifi Access Point Mac Address.
-
-DIHelper.getWifiSSID to retrieve the Wifi SSID.
-
-DIHelper.getEthernetMacAddress to retrieve the Ethernet Mac Address if applicable.
-
-See sample App for more information.
-
-## Added new method DIHelper.getBtMacAddress to retrieve Bluetooth Mac Address.
-
-### 1. Change of REPOSITORY
-### 2. UPDATED FOR A13...
-### 3. Added a Sample repository running on <=A13
+See sample App for a quick implementation of the library.
 
 ## Sample Repository
-https://github.com/ltrudu/DeviceIdentifiersWrapper-Sample
+https://github.com/ltrudu/ZebraOEMInfoWrapper-Sample
 
-Look for "TODO: MANDATORY FOR DeviceIdentifierWrapper" to find what you need to add to your AndroidManifest.xml and build files.
-
-## V0.9 to V0.10 : Get Bluetooth Mac Address
-```text
-	Added method DIHelper.getBtMacAddress to retrieve device's Bluetooth Mac Address
-```
-
-## V0.8 to V0.9 : Updated for A13
-```text
-	Added BIND_NOTIFICATION_LISTENER_SERVICE permission
-	Added com.symbol.emdk.emdkservice to the queries element of the AndroidManifest.xml
-	Added com.zebra.zebracontentprovider to the queries element of the AndroidManifest.xml
-	API updated to 33
-```
-## V0.4 to v0.8 : Basic cache mechanism & Wait for EMDK availability
-```text
-        Added basic cache mechanism.
-	The IMei and the Serial number will be cached once they get retrieved.
-	The cache can be reset with the method: 
-	DIHelper.resetCachedValues()
-	Added a mechanism to wait for the EMDK if it is not available (when responding to the BOOT_COMPLETED event for ex.)
-	To be tested... feel free to report any issue regarding this feature.
-	Check the sample for a basic implementation.
-	Added lots of logs that will be sent to logCat or to the onDebugStatus callback method.
-	Updated gradle version to release 7.3.3
-```
-## V0.3 : Update for A11
-```text
-        Update your graddle distribution to >= 7.3.3
-        update your compileSdkVersion to 30
-        Update your Manifest.xml file to add the Query element (as explained in this description)
-        Add jitpack.io repository to the project build.graddle file : maven { url 'https://jitpack.io' }
-        Update the dependency in the graddle application file: implementation 'com.github.ltrudu:DeviceIdentifiersWrapper:0.3' or replace 0.3 with + to get the latest version automatically
-        Everything is explained in detail in this documentation.
-        You can use the sample as a copy/paste source.
-```
+Look for "TODO: MANDATORY FOR ZebraOEMInfoWrapper" section of this Readme to find what you need to add to your AndroidManifest.xml to use this wrapper.
 
 ## Important !!
 ```text
         Due to usage of the EMDK and the need to register the application, it is strongly advised to call the methods in your application class
-	Check https://github.com/ltrudu/DeviceIdentifiersWrapper-Sample implementation.
+	Check https://github.com/ltrudu/ZebraOEMInfoWrapper-Sample implementation.
 	It's a basic implementation using static members.
 	Feel free to remove statics and replace them with a better code in terms of architecture.
 	The goal was to pass the idea that theses  number should be retrieved only once, and the best place for it is the Application class.
-	Note that a mechanism has been added in V0.4 to wait for the EMDK in case it would not be available (the classic use case is when your app respond to the BOOT_COMPLETED event that occurs way before the EMDK finishes its initialization)
+	Note that a mechanism is available to wait for the EMDK in case it would not be available (the classic use case is when your app respond to the BOOT_COMPLETED event that occurs way before the EMDK finishes its initialization)
 ``` 
 
 ## Description
-A wrapper to easily retrieve the Serial Number and the IMEI number of an Android 10+ Zebra device.
 
-How to access device identifiers such as serial number and IMEI on Zebra devices running Android 10
+A wrapper to easily retrieve the Zebra's OEM Information of an Android 11+ Zebra device.
+
+How to access these informations on Zebra devices running Android 11
 
 Android 10 limited access to device identifiers for all apps running on the platform regardless of their target API level.  As explained in the docs for [Android 10 privacy changes](https://developer.android.com/about/versions/10/privacy/changes) this includes the serial number, IMEI and some other identifiable information.
 
-**Zebra mobile computers running Android 10 are able to access both the serial number and IMEI** however applications need to be **explicitly granted the ability** to do so and use a proprietary API.
+Android 11 and 13 removed more access to these information for security reasons.
+
+Some of them are not available on classic Android OS (Wan information for example, Ethernet Mac Address).
+
+**Zebra mobile computers running Android 11 are able to access all these information** however applications need to be **explicitly granted the ability** to do so and use a proprietary API.
 
 To access to this API, you must first register your application using the AccessMgr MX's CSP.
 
@@ -111,7 +66,7 @@ You can do it using StageNow, more details here: https://github.com/darryncampbe
 Or you can use this wrapper that will automatically register your application if it is necessary.
 
 ## Implementation
-To use this helper on Zebra Android devices running Android 10 or higher, first declare a new permission in your AndroidManifest.xml
+To use this helper on Zebra Android devices running Android 11 or higher, first declare a new permission in your AndroidManifest.xml
 
 ```xml
 <uses-permission android:name="com.zebra.provider.READ"/>
@@ -158,6 +113,7 @@ Sample AdroidManifest.xml:
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+	<!--> TODO: Add the uses-library EMDK to your manifest </-->
         <uses-library android:name="com.symbol.emdk" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -202,9 +158,9 @@ task clean(type: Delete) {
 }       
 ```
 
-Finally, add DeviceIdentifierWrapper dependency to your application build.graddle file:
+Finally, add ZebraOEMInfoWrapper dependency to your application build.graddle file:
 ```text
-        implementation 'com.github.ltrudu:DeviceIdentifiersWrapper:+'        
+        implementation 'com.github.ltrudu:ZebraOEMInfoWrapper:+'        
 ```
 
 Sample application build.graddle:
@@ -215,18 +171,33 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.github.ltrudu:DeviceIdentifiersWrapper:+'
+    implementation 'com.github.ltrudu:ZebraOEMInfoWrapper:+'
 }
 ```
 
-Now you can use the following snippet codes to retrieve IMEI number and Serial Number information.
+## The information are separated into 4 classes:
 
+- Helper_SecureInfo : Provides access to sensitive information like IMEI, Serial Number, Bluetooth Mac Address, Wifi Mac Address,...
+- Helper_OSUpdateInfo : Provides access to information on the status of the current OS update process
+- Helper_SoftwareInfo : Provides information on the versions of the softwares installed on the device like OS Baseline, OS Fingerprint, OS Patch version, ZDM Version, MX Version,...
+- Helper_WanInfo : Provides information on the Wan config of the current device like Eid, Telephony Sim Operator, CarrierName, IccId, etc...
+
+The full list of available values can be found on the Zebra website:
+https://techdocs.zebra.com/oeminfo/consume/
+
+Only the values marked as "Varies by Android version" are not implemented.
+
+Feel free to add them and do a pull request on this code if you need them :)
+
+Now you can use the following snippet codes to retrieve OEM information.
+
+## Code Snippets
 
 Snippet code to use to retrieve the Serial Number of the device:
 ```java
      private void getSerialNumber(Context context)
      {
-         DIHelper.getSerialNumber(context, new IDIResultCallbacks() {
+         Helper_SecureInfo.getSerialNumber(context, new IDIResultCallbacks() {
              @Override
              public void onSuccess(String message) {
                  // The message contains the serial number
@@ -252,7 +223,7 @@ Snippet code to use to retrieve the IMEI of the device:
 ```java
     private void getIMEINumber(Context context)
     {
-        DIHelper.getIMEINumber(context, new IDIResultCallbacks() {
+        Helper_SecureInfo.getIMEINumber(context, new IDIResultCallbacks() {
             @Override
             public void onSuccess(String message) {
                 // We've got an EMEI number
@@ -273,15 +244,15 @@ Snippet code to use to retrieve the IMEI of the device:
     }
 ```
 
-Snippet code to use to retrieve the Bluetooth Mac Address of the device:
+Snippet code to use to retrieve the MX Version installed on the device:
 ```java
-    private void getBTMacAddress(Context context)
+    private void getMXVersion(Context context)
     {
-        DIHelper.getBtMacAddress(context, new IDIResultCallbacks() {
+        Helper_SoftwareInfo.getMX_Version(context, new IDIResultCallbacks() {
             @Override
             public void onSuccess(String message) {
-		// We've got the bt mac address
-                String myBluetoothMacAddress = message;
+		// We've got the mx version
+                String myMXVersion = message;
             }
 
             @Override
@@ -299,9 +270,36 @@ Snippet code to use to retrieve the Bluetooth Mac Address of the device:
 ```
 
 
-As the previous methods are asynchronous, if you need both information, it is strongly recommended to call the second request inside the onSuccess or onError of the first request. 
+Snippet code to use to retrieve the the OS Build Version Security Patch installed on the device:
+```java
+    private void getBuildVersionSecurityPatch(Context context)
+    {
+        Helper_SoftwareInfo.getBuild_Version_Security_Patch(context, new IDIResultCallbacks() {
+            @Override
+            public void onSuccess(String message) {
+				// We've got the build version security patch
+                String myBuildVersionSecurityPatch = message;
+            }
 
-Sample code if you need to get both device identifiers:
+            @Override
+            public void onError(String message) {
+                // An error occurred
+            }
+
+            @Override
+            public void onDebugStatus(String message) {
+                // You can use this method to get verbose information
+                // about what's happening behind the curtain
+            }
+        });
+    }
+```
+
+As the previous methods are asynchronous, if you need more than one information, it is strongly recommended to call the next request inside the onSuccess or onError of the first request. 
+
+See implementation of ZebraIdentifiersApplication inside the ZebraOEMInfoWrapper-Sample for a basic chain implementation.
+
+Sample code if you need to get the serial number and the IMEI number of a device:
 ```java
      private void getDevicesIdentifiers(Context context)
      {
@@ -365,3 +363,7 @@ Sample code if you need to get both device identifiers:
          });
      }
 ```
+
+All the methods from all the helpers implement the same mechanism.
+
+You can just copy paste the current snippet and change the helper class and the method call to get the information you need.
