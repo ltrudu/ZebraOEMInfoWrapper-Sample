@@ -1,0 +1,2 @@
+include ':ZebraOEMIdentifiers-Sample'//, ':ZebraOEMInfoWrapper'
+rootProject.name = "ZebraOEMIdentifiers-Sample"
