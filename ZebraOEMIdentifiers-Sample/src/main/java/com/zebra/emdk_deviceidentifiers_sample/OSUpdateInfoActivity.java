@@ -43,8 +43,12 @@ public class OSUpdateInfoActivity extends AppCompatActivity {
                 updateTextViewContent(tvOSUpdateDetail,"");
                 updateTextViewContent(tvOSUpdateTimeStamp,"");
                 Helper_OSUpdateInfo.resetCachedValues();
-                updatetvOSUpdateStatus();
-            }
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        updatetvOSUpdateStatus();
+                    }
+                }).start();            }
         });
 
     }
@@ -52,7 +56,12 @@ public class OSUpdateInfoActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        updatetvOSUpdateStatus();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                updatetvOSUpdateStatus();
+            }
+        }).start();
     }
 
     protected void addMessageToStatusText(String message)

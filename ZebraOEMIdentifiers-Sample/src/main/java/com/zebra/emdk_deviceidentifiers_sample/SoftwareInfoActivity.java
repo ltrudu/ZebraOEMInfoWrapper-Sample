@@ -66,15 +66,24 @@ public class SoftwareInfoActivity extends AppCompatActivity {
                 updateTextViewContent(tvZDM_Version,"");
                 updateTextViewContent(tvMX_Version,"");
                 Helper_SoftwareInfo.resetCachedValues();
-                updateOs_Delta_Support_Version();
-            }
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        updateOs_Delta_Support_Version();
+                    }
+                }).start();            }
         });
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        updateOs_Delta_Support_Version();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                updateOs_Delta_Support_Version();
+            }
+        }).start();
     }
 
     protected void addMessageToStatusText(String message)

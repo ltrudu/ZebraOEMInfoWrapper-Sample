@@ -85,15 +85,24 @@ public class WanInfoActivity extends AppCompatActivity {
                 updateTextViewContent(tvSimState2,"");
                 updateTextViewContent(tvTelephony_Sim_Operator,"");
                 Helper_WanInfo.resetCachedValues();
-                updatetvAllESIMProfilesInfo1();
-            }
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        updatetvAllESIMProfilesInfo1();
+                    }
+                }).start();            }
         });
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        updatetvAllESIMProfilesInfo1();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                updatetvAllESIMProfilesInfo1();
+            }
+        }).start();
     }
 
     protected void addMessageToStatusText(String message)
