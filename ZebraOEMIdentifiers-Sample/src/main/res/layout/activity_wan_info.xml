@@ -3,12 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".SoftwareInfoActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btRefresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Refresh"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTelephony_Sim_Operator" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btRefresh">
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:singleLine="false" />
+        </ScrollView>
 
         <TextView
             android:id="@+id/lblAllESIMProfilesInfo1"
@@ -229,6 +254,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvIccid1" />
 
+
         <TextView
             android:id="@+id/tvIccid2"
             android:layout_width="0dp"
@@ -254,7 +280,6 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvIccid2" />
-
 
         <TextView
             android:id="@+id/tvImei"
@@ -452,6 +477,7 @@
             app:layout_constraintStart_toEndOf="@+id/lblSimState2"
             app:layout_constraintTop_toBottomOf="@+id/tvSimState1" />
 
+
         <TextView
             android:id="@+id/lblTelephony_Sim_Operator"
             android:layout_width="wrap_content"
@@ -477,34 +503,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/lblTelephony_Sim_Operator"
             app:layout_constraintTop_toBottomOf="@+id/tvSimState2" />
-
-
-        <Button
-            android:id="@+id/btRefresh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/tvTelephony_Sim_Operator"
-            app:layout_constraintStart_toStartOf="parent"
-            android:text="Refresh" />
-
-        <ScrollView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btRefresh"
-            app:layout_constraintVertical_bias="1.0">
-
-            <TextView
-                android:id="@+id/tv_status"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:inputType="textMultiLine"
-                android:singleLine="false" />
-        </ScrollView>
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

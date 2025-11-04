@@ -107,7 +107,7 @@ public class OSUpdateInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvOSUpdateStatus.setText("Error");
+                tvOSUpdateStatus.setText(message);
                 addMessageToStatusText("Error retrieving OSUpdateStatus: " + message);
                 updatetvOSUpdateDetail();
             }
@@ -138,7 +138,7 @@ public class OSUpdateInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvOSUpdateDetail.setText("Error");
+                tvOSUpdateDetail.setText(message);
                 addMessageToStatusText("Error retrieving OSUpdateDetail: " + message);
                 updatetvOSUpdateTimeStamp();
             }
@@ -176,7 +176,7 @@ public class OSUpdateInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvOSUpdateTimeStamp.setText("Error");
+                tvOSUpdateTimeStamp.setText(message);
                 addMessageToStatusText("Error retrieving OSUpdateTimeStamp: " + message);
             }
 

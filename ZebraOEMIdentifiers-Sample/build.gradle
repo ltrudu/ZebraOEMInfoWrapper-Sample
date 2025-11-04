@@ -4,7 +4,7 @@ android {
     compileSdkVersion 34
 
     defaultConfig {
-        applicationId "com.zebra.emdk_deviceidentifiers_sample"
+        applicationId "com.zebra.emdk_deviceidentifiers_sample.fb"
         minSdkVersion 30
         targetSdkVersion 34
         versionCode 10

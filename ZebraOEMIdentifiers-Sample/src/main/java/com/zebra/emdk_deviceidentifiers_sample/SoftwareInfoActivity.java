@@ -129,7 +129,7 @@ public class SoftwareInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvOs_Delta_Support_Version.setText("Error");
+                tvOs_Delta_Support_Version.setText(message);
                 addMessageToStatusText("Error retrieving Os_Delta_Support_Version: " + message);
                 updateBuild_Fingerprint();
             }
@@ -159,7 +159,7 @@ public class SoftwareInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvBuild_Fingerprint.setText("Error");
+                tvBuild_Fingerprint.setText(message);
                 addMessageToStatusText("Error retrieving Build_Fingerprint: " + message);
                 updateBuild_Base_Fingerprint();
             }
@@ -189,7 +189,7 @@ public class SoftwareInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvBuild_Base_Fingerprint.setText("Error");
+                tvBuild_Base_Fingerprint.setText(message);
                 addMessageToStatusText("Error retrieving Build_Base_Fingerprint: " + message);
                 updateBuild_Baseline();
             }
@@ -219,7 +219,7 @@ public class SoftwareInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvBuild_Baseline.setText("Error");
+                tvBuild_Baseline.setText(message);
                 addMessageToStatusText("Error retrieving Build_Baseline: " + message);
                 updateBuild_Version_Security_Patch();
             }
@@ -249,7 +249,7 @@ public class SoftwareInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvBuild_Version_Security_Patch.setText("Error");
+                tvBuild_Version_Security_Patch.setText(message);
                 addMessageToStatusText("Error retrieving Build_Version_Security_Patch: " + message);
                 updateBuild_Security_Critical();
             }
@@ -279,7 +279,7 @@ public class SoftwareInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvBuild_Security_Critical.setText("Error");
+                tvBuild_Security_Critical.setText(message);
                 addMessageToStatusText("Error retrieving Build_Security_Critical: " + message);
                 updateDevice_Patch_Version();
             }
@@ -309,7 +309,7 @@ public class SoftwareInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvDevice_Patch_Version.setText("Error");
+                tvDevice_Patch_Version.setText(message);
                 addMessageToStatusText("Error retrieving Device_Patch_Version: " + message);
                 updateSys_Cfe_Patch_Version();
             }
@@ -339,7 +339,7 @@ public class SoftwareInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvSys_Cfe_Patch_Version.setText("Error");
+                tvSys_Cfe_Patch_Version.setText(message);
                 addMessageToStatusText("Error retrieving Sys_Cfe_Patch_Version: " + message);
                 updateCrypto_Type();
             }
@@ -369,7 +369,7 @@ public class SoftwareInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvCrypto_Type.setText("Error");
+                tvCrypto_Type.setText(message);
                 addMessageToStatusText("Error retrieving Crypto_Type: " + message);
                 updateZDM_Version();
             }
@@ -399,7 +399,7 @@ public class SoftwareInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvZDM_Version.setText("Error");
+                tvZDM_Version.setText(message);
                 addMessageToStatusText("Error retrieving ZDM_Version: " + message);
                 updateMX_Version();
             }
@@ -421,14 +421,14 @@ public class SoftwareInfoActivity extends AppCompatActivity {
                 SoftwareInfoActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        tvMX_Version.setText(message.isEmpty() == false ? message : "Not Available");
+                        tvMX_Version.setText(message.isEmpty() == false ? message : "Data not found");
                     }
                 });
             }
 
             @Override
             public void onError(String message) {
-                tvMX_Version.setText("Error");
+                tvMX_Version.setText(message);
                 addMessageToStatusText("Error retrieving ZDM_Version: " + message);
             }
 

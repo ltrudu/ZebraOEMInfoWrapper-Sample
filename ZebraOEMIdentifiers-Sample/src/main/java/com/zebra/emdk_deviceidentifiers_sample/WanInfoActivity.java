@@ -149,7 +149,7 @@ public class WanInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvAllESIMProfilesInfo1.setText("Error");
+                tvAllESIMProfilesInfo1.setText(message);
                 addMessageToStatusText("Error retrieving AllESIMProfilesInfo1: " + message);
                 updatetvAllESIMProfilesInfo2();
             }
@@ -179,7 +179,7 @@ public class WanInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvAllESIMProfilesInfo2.setText("Error");
+                tvAllESIMProfilesInfo2.setText(message);
                 addMessageToStatusText("Error retrieving AllESIMProfilesInfo2: " + message);
                 updatetvCarrierName1();
             }
@@ -210,7 +210,7 @@ public class WanInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvCarrierName1.setText("Error");
+                tvCarrierName1.setText(message);
                 addMessageToStatusText("Error retrieving CarrierName1: " + message);
                 updatetvCarrierName2();
             }
@@ -240,7 +240,7 @@ public class WanInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvCarrierName2.setText("Error");
+                tvCarrierName2.setText(message);
                 addMessageToStatusText("Error retrieving CarrierName2: " + message);
                 updatetvEid();
             }
@@ -270,7 +270,7 @@ public class WanInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvEid.setText("Error");
+                tvEid.setText(message);
                 addMessageToStatusText("Error retrieving Eid: " + message);
                 updatetvEid1();
             }
@@ -300,7 +300,7 @@ public class WanInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvEid1.setText("Error");
+                tvEid1.setText(message);
                 addMessageToStatusText("Error retrieving Eid1: " + message);
                 updatetvEid2();
             }
@@ -330,7 +330,7 @@ public class WanInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvEid2.setText("Error");
+                tvEid2.setText(message);
                 addMessageToStatusText("Error retrieving Eid2: " + message);
                 updatetvIccid1();
             }
@@ -361,7 +361,7 @@ public class WanInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvIccid1.setText("Error");
+                tvIccid1.setText(message);
                 addMessageToStatusText("Error retrieving Iccid1: " + message);
                 updatetvIccid2();
             }
@@ -391,7 +391,7 @@ public class WanInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvIccid2.setText("Error");
+                tvIccid2.setText(message);
                 addMessageToStatusText("Error retrieving Iccid2: " + message);
                 updatetvImei();
             }
@@ -421,7 +421,7 @@ public class WanInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvImei.setText("Error");
+                tvImei.setText(message);
                 addMessageToStatusText("Error retrieving Imei: " + message);
                 updatetvImei1();
             }
@@ -451,7 +451,7 @@ public class WanInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvImei1.setText("Error");
+                tvImei1.setText(message);
                 addMessageToStatusText("Error retrieving Imei1: " + message);
                 updatetvImei2();
             }
@@ -481,7 +481,7 @@ public class WanInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvImei2.setText("Error");
+                tvImei2.setText(message);
                 addMessageToStatusText("Error retrieving Imei2: " + message);
                 updatetvImsi1();
             }
@@ -511,7 +511,7 @@ public class WanInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvImsi1.setText("Error");
+                tvImsi1.setText(message);
                 addMessageToStatusText("Error retrieving Imsi1: " + message);
                 updatetvImsi2();
             }
@@ -541,7 +541,7 @@ public class WanInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvImsi2.setText("Error");
+                tvImsi2.setText(message);
                 addMessageToStatusText("Error retrieving Imsi2: " + message);
                 updatetvPreferredAPN();
             }
@@ -571,7 +571,7 @@ public class WanInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvPreferredAPN.setText("Error");
+                tvPreferredAPN.setText(message);
                 addMessageToStatusText("Error retrieving PreferredAPN: " + message);
                 updatetvSimState1();
             }
@@ -601,7 +601,7 @@ public class WanInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvSimState1.setText("Error");
+                tvSimState1.setText(message);
                 addMessageToStatusText("Error retrieving SimState1: " + message);
                 updatetvSimState2();
             }
@@ -631,7 +631,7 @@ public class WanInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvSimState2.setText("Error");
+                tvSimState2.setText(message);
                 addMessageToStatusText("Error retrieving SimState2: " + message);
                 updatetvTelephony_Sim_Operator();
             }
@@ -660,7 +660,7 @@ public class WanInfoActivity extends AppCompatActivity {
 
             @Override
             public void onError(String message) {
-                tvTelephony_Sim_Operator.setText("Error");
+                tvTelephony_Sim_Operator.setText(message);
                 addMessageToStatusText("Error retrieving Telephony_Sim_Operator: " + message);
             }
 

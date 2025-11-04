@@ -2,7 +2,7 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         // TODO: MANDATORY FOR DeviceIdentifierWrapper add Reference to Jitpack.io
         maven { url 'https://jitpack.io' }
     }
@@ -16,8 +16,8 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
         google()
+        mavenCentral()
         // TODO: MANDATORY FOR DeviceIdentifierWrapper add Reference to Jitpack.io
         maven { url 'https://jitpack.io' }
         maven {
