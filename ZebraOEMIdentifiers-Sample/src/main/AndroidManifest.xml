@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.zebra.emdk_deviceidentifiers_sample">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- > TODO: MANDATORY FOR DeviceIdentifierWrapper Add these permissions and query elements to your manifest </ -->
     <queries>
